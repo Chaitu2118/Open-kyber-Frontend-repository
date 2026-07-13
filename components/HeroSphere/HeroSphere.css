@@ -1,0 +1,90 @@
+/* Responsive Design System Variables */
+:root {
+  /* Default Mobile (<768px) */
+  --hero-sphere-size: 180px;
+  --hero-sphere-top: 80px;
+  --hero-sphere-right: -30px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hero-sphere-size: 260px;
+    --hero-sphere-top: 90px;
+    --hero-sphere-right: -40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --hero-sphere-size: 300px;
+    --hero-sphere-top: 100px;
+    --hero-sphere-right: -50px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --hero-sphere-size: 390px; /* Reduced by ~10% from 430px */
+    --hero-sphere-top: 110px; /* Positioned slightly higher than center of heading */
+    --hero-sphere-right: -60px; /* Keeps ~15-20% outside viewport */
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --hero-sphere-size: 360px; /* Reduced proportionally */
+    --hero-sphere-top: 110px;
+    --hero-sphere-right: -55px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --hero-sphere-size: 340px; /* Reduced proportionally for 1920px width */
+    --hero-sphere-top: 110px;
+    --hero-sphere-right: -50px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --hero-sphere-size: 320px; /* Reduced proportionally for ultra wide */
+    --hero-sphere-top: 110px;
+    --hero-sphere-right: -45px;
+  }
+}
+
+.hero-sphere-wrapper {
+  position: absolute;
+  top: var(--hero-sphere-top);
+  right: var(--hero-sphere-right);
+  width: var(--hero-sphere-size);
+  height: var(--hero-sphere-size);
+  z-index: -1; /* Placed behind the text content (zIndex: 2) for standard overlap visibility */
+  pointer-events: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-sphere-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 138, 0.1) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-sphere-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+}
